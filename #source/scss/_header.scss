@@ -1,0 +1,167 @@
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: #ffffff;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: all 0.5s ease;
+  border-bottom: 1px solid #eee;
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    @media screen and (max-width: 1024px) {
+      height: 70px;
+    }
+  }
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    height: 100%;
+  }
+  .header-logo {
+    width: 250px;
+    margin-right: 24px;
+    @media screen and (max-width: 1024px) {
+      width: 200px;
+    }
+    img {
+      width: 100%;
+    }
+  }
+
+  .right {
+    display: flex;
+    gap: 24px;
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      transition: all 0.3s ease;
+      @media screen and (max-width: 1024px) {
+        position: absolute;
+        background-color: #fff;
+        height: 100vh;
+        right: 0;
+        top: -100vh;
+        flex-direction: column;
+        width: 500px;
+        align-items: flex-start;
+        padding: 24px;
+        opacity: 0;
+        &.active {
+          top: 71px;
+          opacity: 1;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        width: 100%;
+      }
+
+      .header-link {
+        font-size: 16px;
+        color: #000;
+        font-weight: 400;
+        transition: all 0.1s linear;
+        display: flex;
+        align-items: center;
+        img {
+          width: 26px;
+          height: 26px;
+          margin-right: 8px;
+        }
+        &:hover {
+          color: var(--grey-blue);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .burger-menu {
+    padding: 0 16px;
+    height: 45px;
+    width: 50px;
+    display: none;
+    border-radius: 10px;
+    @media screen and (max-width: 1024px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @media screen and (max-width: 768px) {
+      order: 3;
+    }
+
+    span {
+      min-width: 32px;
+      height: 3px;
+      background-color: #000;
+      border-radius: 1px;
+      position: relative;
+      display: block;
+      transition: all 0.2s linear;
+      &::before,
+      &::after {
+        content: '';
+        width: 25px;
+        height: 3px;
+        border-radius: 1px;
+        position: absolute;
+        background-color: #000;
+      }
+      &::before {
+        right: 0;
+        top: -8px;
+        transition: all 0.2s linear;
+      }
+      &::after {
+        right: 0;
+        bottom: -8px;
+        transition: all 0.2s linear;
+      }
+    }
+    &.active {
+      span {
+        transform: rotate(45deg);
+        &::before {
+          opacity: 0;
+        }
+        &::after {
+          bottom: 0;
+          transform: rotate(-90deg);
+          width: 32px;
+        }
+      }
+    }
+  }
+  .btn {
+    position: relative;
+    overflow: hidden;
+    &::after {
+      content: 'Консультація';
+      background: var(--gradient);
+      color: #fff;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: all 0.2s ease;
+    }
+    &:hover,
+    &:focus {
+      border: 1px solid var(--light-green);
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}
