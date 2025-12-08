@@ -1,1 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+// Artegra Sans
+@font-face {
+  font-family: 'Artegra Sans';
+  src: url('../fonts/Artegra/ArtegraSansExBold.woff2') format('woff2'),
+    url('../fonts/Artegra/ArtegraSansExBold.woff') format('woff'),
+    url('../fonts/Artegra/ArtegraSansExBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

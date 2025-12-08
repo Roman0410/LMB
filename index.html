@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Львів може більше</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
@@ -21,6 +21,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./img/fav.svg" />
   </head>
   <body>
     <header class="header">
@@ -28,28 +35,48 @@
         <div class="header-container">
           <div class="left">
             <a href="index.html" class="header-logo">
-              <img src="./img/logo/logo-color.svg" alt="" />
+              <img src="./img/logo/logoLight.svg" alt="" />
             </a>
           </div>
           <div class="right">
             <div class="header-links">
-              <a href="tel:23123123421321" class="header-link"
-                ><img src="./img/phone-svgrepo-com.svg" alt="" />+38061 111 11
-                11</a
-              >
-              <a href="mailto:neurofocus2025@gmail.com" class="header-link"
-                ><img
-                  src="./img/mail-svgrepo-com.svg"
-                  alt=""
-                />neurofocus2025@gmail.com</a
-              >
-              <a
-                href="https://maps.app.goo.gl/3K39DjQxKAC8Qer6A"
-                class="header-link"
-                ><img src="./img/location-pin-alt-1-svgrepo-com.svg" alt="" />м.
-                Львів, вул. Любінська 6Б</a
-              >
-              <a href="#" class="btn">Консультація</a>
+              <nav class="nav">
+                <ul class="nav-list">
+                  <li class="nav-item">
+                    <a href="./index.html" class="nav-link">Головна</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./events.html" class="nav-link">Події</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./news.html" class="nav-link">Новини</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./contact.html" class="nav-link">Контакти</a>
+                  </li>
+                </ul>
+              </nav>
+
+              <a href="./contact.html#contact" class="btn">Зв'язатися</a>
+              <div class="mobile-nav">
+                <ul class="nav-list">
+                  <li class="nav-item">
+                    <a href="./index.html" class="nav-link">Головна</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./events.html" class="nav-link">Події</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./news.html" class="nav-link">Новини</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./contact.html" class="nav-link">Контакти</a>
+                  </li>
+                </ul>
+                <a href="./contact.html#contact" class="btn mobile-btn"
+                  >Зв'язатися</a
+                >
+              </div>
             </div>
 
             <div class="burger-menu">
@@ -67,564 +94,323 @@
       />
       <div class="wrapper">
         <div class="container">
-          <div class="card" data-aos="fade-left" data-aos-duration="1500">
-            <p class="hero-subtitle">Медичний центр Марти Хавунки</p>
+          <div class="card">
             <h1 class="hero-title">
-              Ніхто <span>не обирав</span> життя з РС, але
-              <span> Вам обирати</span> як його <span>жити</span>
+              Львів може більше — місто, що живе сьогодні і створює завтра.
             </h1>
-
             <p class="text">
-              Крок за кроком ми допомагаємо повернути контроль над Вашим життям.
-              <br />
-              Досліджуйте, знаходьте та створюйте нові можливості з нами
+              ЛМБ — це візійна платформа розвитку міста, створена Степаном
+              Куйбідою та Тарасом Хавункою у 2025 році. <br />
+              Ми гуртуємо львівʼян задля спільного напрацювання довгострокової
+              візії міста. Чому? Бо ми впевнені, що Львів може більше. І саме
+              сьогодні ми працюємо над тим, щоб майбутнє наших дітей було більш
+              безпечним (безпека), <br />
+              більш комфортним (економіка) і більш перспективним
+              (євроінтеграція).
             </p>
+            <a
+              href="https://forms.gle/YOUR_FORM_ID"
+              target="_blank"
+              class="btn hero-btn"
+              >Долучитися</a
+            >
           </div>
+
+          <img src="./img/markTr.svg" alt="" class="logo-mark-tr" />
         </div>
       </div>
     </main>
-    <section class="aboutUs">
-      <div class="back-title" data-aos="fade-left" data-aos-duration="1500">
-        Про нас
-      </div>
+    <section class="about-us" id="about">
       <div class="container">
-        <div class="left">
-          <h2
-            class="section-title"
-            data-aos="fade-right"
-            data-aos-duration="1500"
-          >
-            Про нас
-          </h2>
-          <p class="text_18" data-aos="fade-up" data-aos-duration="1500">
-            <span>НейроФокус</span> - це неврологічний центр Марти Хавунки, який
-            спеціалізується на профілактиці та лікуванні розсіяного (множинного)
-            склерозу. Ми допомагаємо віднайти впевненість у завтрашньому дні та
-            надаємо комплексну підтримку Вам та Вашим рідним. Життя
-            продовжується. Творіть своє майбутнє з нами!
-          </p>
-        </div>
-        <div class="right">
-          <img
-            src="./img/photo_2025-08-21 12.12.43.jpeg"
-            alt=""
-            class="background-image"
-          />
-          <div class="quote-card">
-            <div class="quote" data-aos="fade-down" data-aos-duration="1500">
-              <svg
-                fill="#000000"
-                width="800px"
-                height="800px"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.318.142-.686.238-1.028.466-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.945-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 6.5 10zm11 0c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35l.539-.222.474-.197-.485-1.938-.597.144c-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.317.143-.686.238-1.028.467-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.944-.33.358-.656.734-.909 1.162-.293.408-.492.856-.702 1.299-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539l.025.168.026-.006A4.5 4.5 0 1 0 17.5 10z"
-                />
-              </svg>
-              <p class="text_16 quote-text">
-                Привіт! Я Марта Хавунка, лікар-невролог з понад 20-річним
-                досвідом роботи. Я спеціалізуюся на лікуванні та профілактиці
-                розсіяного склерозу та очолюю клінічні дослідження в Україні вже
-                понад 20 років. За цей час я переконалася: найбільший виклик для
-                пацієнтів — не лише симптоми, а відчуття, що вони залишаються
-                сам на сам із діагнозом. Саме тому я створила “Нейрофокус” — щоб
-                дати людям не тільки сучасне лікування, а й опору, розуміння та
-                команду, яка допоможе крок за кроком будувати нове життя, повне
-                можливостей.
+        <h2 class="section-title">Про нас</h2>
+
+        <div class="about-content">
+          <div class="about-intro">
+            <p class="text_18">
+              Ініціатива "Львів може більше" була заснована Степаном Куйбідою та
+              Тарасом Хавункою з метою обʼєднання людей для напрацювання візії
+              Львова 2056. Проте сама ідея виникла раніше.
+            </p>
+            <div class="highlight-box">
+              <span class="highlight-label">Чому 2056?</span>
+              <p class="text_16">
+                Історія Група 800 тоді то тоді то почали думати…. зараз
+                реалізуємо
               </p>
-              <div class="quote-author">
-                <p class="quote-name">Марта Хавунка</p>
-                <p class="quote-position">
-                  Засновниця медичного центру “НейроФокус” <br />
-                  <span>провідний лікар-невролог, к.мед.н</span>
+            </div>
+          </div>
+
+          <div class="about-cards">
+            <div class="about-card">
+              <h3 class="title_24">Наша місія</h3>
+              <p class="text_18">
+                Будувати культуру розвитку міста, де кожне рішення і кожен
+                проєкт дає відчуття того, що місто тебе поважає. Де кожен
+                львівʼянин відчуває, що місто його поважає.
+              </p>
+              <p class="text_18 about-question">
+                Питання, яке ми повинні собі задавати — не що я зробив для
+                міста, а що місто зробило для мене, щоб я хотів і міг створювати
+                його завтра.
+              </p>
+            </div>
+            <div class="about-card vision">
+              <h3 class="title_24">Наша візія</h3>
+              <p class="text_18">
+                Львів — це місто, яке впевнено конкурує з найкращими
+                європейськими столицями. Місто простих правил, сильного бізнесу,
+                культури й науки, місто гідного життя, яким пишаються львів'яни
+                й захоплюється світ.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="founders" id="founders">
+      <div class="container">
+        <h2 class="section-title">Творці ЛМБ</h2>
+
+        <div class="founders-content">
+          <div class="founders-intro">
+            <p class="text_18">
+              Ініціатива "Львів може більше" була заснована Степаном Куйбідою та
+              Тарасом Хавункою з метою обʼєднання людей для напрацювання візії
+              Львова 2056.
+            </p>
+          </div>
+
+          <div class="founders-cards">
+            <div class="founder-card">
+              <div class="founder-photo">
+                <img
+                  src="./img/founders/stepan-kuybida.jpg"
+                  alt="Степан Куйбіда"
+                />
+              </div>
+              <div class="founder-info">
+                <h3 class="title_24">Степан Куйбіда</h3>
+                <p class="text_16 founder-role">Засновник</p>
+                <p class="text_16">
+                  Опис ролі та внеску в ініціативу Львів може більше.
                 </p>
               </div>
             </div>
-            <div class="author-img" data-aos="fade-up" data-aos-duration="1200">
-              <img src="./img/IMG_8669.png" alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="why-Us">
-      <div class="back-title" data-aos="fade-right" data-aos-duration="1500">
-        Чому ми?
-      </div>
-      <div class="container">
-        <h2 class="section-title reverse">Чому ми?</h2>
-        <div class="advantages-list">
-          <div
-            class="advantages-item"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
-            <div class="num">01</div>
-            <h3 class="advantages-title">Комплексна підтримка</h3>
-            <p class="advantages-description">
-              Підтримуючи Вас та Ваших рідних, ми допомагаємо не лише боротися
-              із точковими симптомами, а комплексно налагоджувати життя
-            </p>
-          </div>
-          <div
-            class="advantages-item"
-            data-aos="fade-up"
-            data-aos-duration="1300"
-          >
-            <div class="num">02</div>
-            <h3 class="advantages-title">
-              Експертність та прогресивний підхід
-            </h3>
-            <p class="advantages-description">
-              Наші лікарі мають не лише спеціалізовані знання у сфері
-              профілактики та лікування РС, але й багаторічний досвід роботи.
-              Використовуючи прогресивний підхід та інноваційні методи лікування
-              ми допоможемо досягти максимального результату
-            </p>
-          </div>
-          <div
-            class="advantages-item"
-            data-aos="fade-up"
-            data-aos-duration="1500"
-          >
-            <div class="num">03</div>
-            <h3 class="advantages-title">Індивідуальний підхід</h3>
-            <p class="advantages-description">
-              Ми зосереджуємо свої зусилля на унікальних потребах і обставинах
-              кожного. Крок за кроком ми допоможемо повернути контроль над Вашим
-              життям
-            </p>
-          </div>
-          <div
-            class="advantages-item"
-            data-aos="fade-up"
-            data-aos-duration="1800"
-          >
-            <div class="num">04</div>
-            <h3 class="advantages-title">Партнерство</h3>
-            <p class="advantages-description">
-              Ніхто не попіклується про Вас краще ніж Ви самі. Саме тому, нашим
-              завданням є тримати Вас у повній проінформованості, щодо кожного
-              етапу лікування, надавати відповіді на усі запитання, що турбують,
-              щоб разом приймати найкращі рішення для забезпечення стабільного
-              майбутнього
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="our-team">
-      <div class="back-title" data-aos="fade-right" data-aos-duration="1500">
-        Наші спеціалісти
-      </div>
-      <div class="container">
-        <h2 class="section-title">Наші спеціалісти</h2>
-        <div class="team-list" data-aos="fade-up" data-aos-duration="1500">
-          <div class="team-member">
-            <div class="member-photo">
-              <img src="./img/userPlaseholder.png" alt="Марта Хавунка" />
-            </div>
-            <div class="member-info">
-              <h3 class="member-name">Марта Хавунка</h3>
-              <p class="member-position">провідний лікар-невролог, к.мед.н</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="member-photo">
-              <img src="./img/userPlaseholder.png" alt="Ірина Кузьмінська" />
-            </div>
-            <div class="member-info">
-              <h3 class="member-name">Ірина Кузьмінська</h3>
-              <p class="member-position">лікар-невролог, сомнолог</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="member-photo">
-              <img src="./img/userPlaseholder.png" alt="Віра Корбило" />
-            </div>
-            <div class="member-info">
-              <h3 class="member-name">Віра Корбило</h3>
-              <p class="member-position">лікар-невролог</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="member-photo">
-              <img src="./img/userPlaseholder.png" alt="Марія Барчин" />
-            </div>
-            <div class="member-info">
-              <h3 class="member-name">Марія Барчин</h3>
-              <p class="member-position">лікар-гастроентеролог</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="member-photo">
-              <img src="./img/userPlaseholder.png" alt="Олена Коринківська" />
-            </div>
-            <div class="member-info">
-              <h3 class="member-name">Олена Коринківська</h3>
-              <p class="member-position">лікар-ендокринолог</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="member-photo">
-              <img src="./img/userPlaseholder.png" alt="Юрій Кузьмінський" />
-            </div>
-            <div class="member-info">
-              <h3 class="member-name">Юрій Кузьмінський</h3>
-              <p class="member-position">лікар - дитячий нейрохірург</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="member-photo">
-              <img src="./img/userPlaseholder.png" alt="Віра Петрів" />
-            </div>
-            <div class="member-info">
-              <h3 class="member-name">Віра Петрів</h3>
-              <p class="member-position">лікар-невролог</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="member-photo">
-              <img src="./img/userPlaseholder.png" alt="Анастасія Горощак" />
-            </div>
-            <div class="member-info">
-              <h3 class="member-name">Анастасія Горощак</h3>
-              <p class="member-position">лікар-невролог</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="member-photo">
-              <img src="./img/userPlaseholder.png" alt="Наталія Мартиняк" />
-            </div>
-            <div class="member-info">
-              <h3 class="member-name">Наталія Мартиняк</h3>
-              <p class="member-position">медична сестра</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="member-photo">
-              <img src="./img/userPlaseholder.png" alt="Василь Баранецький" />
-            </div>
-            <div class="member-info">
-              <h3 class="member-name">Василь Баранецький</h3>
-              <p class="member-position">лікар-анестезіолог</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="member-photo">
-              <img src="./img/userPlaseholder.png" alt="Вероніка Гик" />
-            </div>
-            <div class="member-info">
-              <h3 class="member-name">Вероніка Гик</h3>
-              <p class="member-position">адміністратор</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="member-photo">
-              <img src="./img/userPlaseholder.png" alt="Вікторія Фурда" />
-            </div>
-            <div class="member-info">
-              <h3 class="member-name">Вікторія Фурда</h3>
-              <p class="member-position">асистент медсестри</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="services">
-      <div class="back-title" data-aos="fade-right" data-aos-duration="1500">
-        Наші послуги
-      </div>
-      <div class="container">
-        <h2
-          class="section-title reverse"
-          data-aos="fade-left"
-          data-aos-duration="1500"
-        >
-          Наші послуги
-        </h2>
-        <ul class="services-list">
-          <li class="services-item" data-aos="fade-up" data-aos-duration="1000">
-            <span class="service-name"
-              >К-ція невролога (провідний спеціаліст Марта Хавунка)</span
-            >
-            <span class="service-price">1800 грн</span>
-          </li>
-          <li class="services-item" data-aos="fade-up" data-aos-duration="1000">
-            <span class="service-name">К-ція невролога (первинна)</span>
-            <span class="service-price">1000 грн</span>
-          </li>
-          <li class="services-item" data-aos="fade-up" data-aos-duration="1000">
-            <span class="service-name">К-ція невролога (вторинна)</span>
-            <span class="service-price">800 грн</span>
-          </li>
-          <li class="services-item" data-aos="fade-up" data-aos-duration="1000">
-            <span class="service-name">К-ція сомнотерапевта (первинна)</span>
-            <span class="service-price">1000 грн</span>
-          </li>
-          <li class="services-item" data-aos="fade-up" data-aos-duration="1000">
-            <span class="service-name">Пакет “Сон під контролем”</span>
-            <span class="service-price">8000 грн</span>
-          </li>
-          <li class="services-item" data-aos="fade-up" data-aos-duration="1000">
-            <span class="service-name">К-ція ендокринолога (первинна)</span>
-            <span class="service-price">1000 грн</span>
-          </li>
-          <li class="services-item" data-aos="fade-up" data-aos-duration="1000">
-            <span class="service-name">К-ція ендокринолога (вторинна)</span>
-            <span class="service-price">800 грн</span>
-          </li>
-          <li class="services-item" data-aos="fade-up" data-aos-duration="1000">
-            <span class="service-name">К-ція гастроентеролога (первинна)</span>
-            <span class="service-price">1000 грн</span>
-          </li>
-          <li class="services-item" data-aos="fade-up" data-aos-duration="1000">
-            <span class="service-name">К-ція гастроентеролога (вторинна)</span>
-            <span class="service-price">800 грн</span>
-          </li>
-          <li class="services-item" data-aos="fade-up" data-aos-duration="1000">
-            <span class="service-name"
-              >К-ція дитячого нейрохірурга (первинна)</span
-            >
-            <span class="service-price">1000 грн</span>
-          </li>
-          <li class="services-item" data-aos="fade-up" data-aos-duration="1000">
-            <span class="service-name"
-              >К-ція дитячого нейрохірурга (вторинна)</span
-            >
-            <span class="service-price">800 грн</span>
-          </li>
-          <li class="services-item" data-aos="fade-up" data-aos-duration="1000">
-            <span class="service-name">К-ція терапевта (первинна)</span>
-            <span class="service-price">1000 грн</span>
-          </li>
-          <li class="services-item" data-aos="fade-up" data-aos-duration="1000">
-            <span class="service-name">К-ція терапевта (вторинна)</span>
-            <span class="service-price">800 грн</span>
-          </li>
-          <li class="services-item" data-aos="fade-up" data-aos-duration="1000">
-            <span class="service-name"
-              >Запис + інтерпретація ЕКГ терапевтом</span
-            >
-            <span class="service-price">350 грн</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-    <section class="contact-us" id="contact">
-      <div class="back-title" data-aos="fade-left" data-aos-duration="1000">
-        Зв'яжіться з нами
-      </div>
-      <div class="container">
-        <h2
-          class="section-title"
-          data-aos="fade-right"
-          data-aos-duration="1500"
-        >
-          Зв'яжіться з нами
-        </h2>
-        <form
-          class="contact-form"
-          id="contactForm"
-          novalidate
-          data-aos="fade-up"
-          data-aos-duration="1000"
-        >
-          <div class="form-row">
-            <div class="form-field">
-              <input
-                type="text"
-                id="cf-lastname"
-                name="lastname"
-                placeholder="Прізвище"
-              />
-            </div>
-            <div class="form-field">
-              <input
-                type="text"
-                id="cf-firstname"
-                name="firstname"
-                placeholder="Ім’я"
-              />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-field">
-              <input
-                type="email"
-                id="cf-email"
-                name="email"
-                placeholder="Email"
-              />
-            </div>
-            <div class="form-field">
-              <input
-                type="tel"
-                id="cf-phone"
-                name="phone"
-                placeholder="Контактний номер телефону"
-              />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-field">
-              <input
-                type="number"
-                id="cf-age"
-                name="age"
-                placeholder="Ваш вік"
-                min="1"
-                max="120"
-              />
-            </div>
-          </div>
-          <div class="form-row single">
-            <div class="form-field">
-              <p class="label-like">На якому етапі Ви знаходитеся</p>
-              <div class="radio-group">
-                <label class="radio">
-                  <input type="radio" name="correction" value="suspicion" />
-                  <span>підозра на РС</span>
-                </label>
-                <label class="radio">
-                  <input type="radio" name="correction" value="diagnosis" />
-                  <span>діагноз РС</span>
-                </label>
-                <label class="radio">
-                  <input type="radio" name="correction" value="treatment" />
-                  <span>лікування (більше 1 року)</span>
-                </label>
-                <label class="radio">
-                  <input
-                    type="radio"
-                    name="correction"
-                    value="not-applicable"
-                  />
-                  <span>не стосується РС</span>
-                </label>
+
+            <div class="founder-card">
+              <div class="founder-photo">
+                <img
+                  src="./img/founders/taras-khavunka.jpg"
+                  alt="Тарас Хавунко"
+                />
               </div>
-              <input
-                type="hidden"
-                id="cf-correction"
-                name="correction_validation"
-              />
-              <div class="js-error-label" data-error-label="correction"></div>
+              <div class="founder-info">
+                <h3 class="title_24">Тарас Хавунко</h3>
+                <p class="text_16 founder-role">Засновник</p>
+                <p class="text_16">
+                  Опис ролі та внеску в ініціативу Львів може більше.
+                </p>
+              </div>
             </div>
           </div>
-          <div class="form-row single">
-            <div class="form-field">
-              <input
-                type="text"
-                id="cf-purpose"
-                name="purpose"
-                placeholder="Мета візиту"
-              />
-            </div>
-          </div>
-          <div class="form-row single">
-            <div class="form-field">
-              <textarea
-                id="cf-message"
-                name="message"
-                rows="4"
-                placeholder="Опишіть, будь ласка, Вашу проблему"
-              ></textarea>
-            </div>
-          </div>
-          <div class="form-actions">
-            <p class="text_16" style="opacity: 0.8">
-              Записуючись на прийом у медичний центр, Ви даєте свою згоду на
-              обробку інформації згідно чинного законодавства України про
-              персональні дані. Наш адміністратор зв’яжеться з Вами для
-              узгодження часу Вашого візиту.
-            </p>
-            <button type="submit" class="btn">Надіслати</button>
-          </div>
-        </form>
+        </div>
       </div>
     </section>
-    <div
-      id="contact-success"
-      style="display: none; max-width: 420px"
-      role="dialog"
-      aria-modal="true"
-    >
-      <div class="contact-success-modal">
-        <h3 class="title_24">Дякуємо!</h3>
-        <p class="text_16">
-          Ваше повідомлення надіслано. Ми зв'яжемось з Вами найближчим часом.
-        </p>
+    <section class="what-we-do" id="what-we-do">
+      <img src="./img/markTr.svg" alt="" class="background-img" />
+      <div class="container">
+        <h2 class="section-title">Що ми робимо?</h2>
+        <div class="what-we-do-content">
+          <div class="what-we-do-intro">
+            <p class="text_18">
+              Сьогодні Львів має бути надійним економічним тилом країни: дбати
+              про своїх людей, створювати прості та чесні правила для всіх.
+              Водночас, Львів має бути містом, що будує завтра: економічний та
+              культурний центр, який впевнено конкурує не лише з українськими
+              містами, але й європейськими. Тому наша робота зосереджена на 3
+              напрямках: безпека, євроінтеграція, економічний розвиток (візія).
+            </p>
+          </div>
+
+          <div class="directions">
+            <div class="direction-card">
+              <h3 class="title_24">Безпека</h3>
+              <p class="text_18">
+                У час війни жодне місто не може гарантувати безпеку. Але може
+                гарантувати готовність, організованість і план захисту, який
+                ґрунтується не на везінні, а на системній роботі.
+              </p>
+              <p class="text_18">
+                Львів має бути місцем, де люди відчувають: тут не чекають
+                загрози — тут до неї готуються. Бо безпека сьогодні — це не
+                страх. Безпека - це вчасно прийняті рішення та системні дії.
+              </p>
+              <div class="direction-timeline">
+                <div class="timeline-item">
+                  <span class="timeline-label">Сьогодні</span>
+                  <p class="text_16">
+                    Практична співпраця між місцевою владою, Tech/IT індустріями
+                    та захисниками міста для створення "львівського купола".
+                  </p>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-label">Завтра</span>
+                  <p class="text_16">
+                    Економічно спроможне місто на карті України та світу.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="direction-card">
+              <h3 class="title_24">Євроінтеграція</h3>
+              <p class="text_18">
+                Львів давно відчуває себе частиною Європи — культурно, ціннісно,
+                ментально. Проте чи можемо ми конкурувати на рівних з
+                європейськими? А маємо. Адже за людей ми конкуруємо з Європою,
+                за підприємців - з Європою, за студентів - з Європою. Львів не
+                може бути містом, звідки молодь їде в пошуку кращого життя.
+                Львів має стати містом куди українська і європейська молодь їде
+                за кращим життям.
+              </p>
+              <div class="direction-timeline">
+                <div class="timeline-item">
+                  <span class="timeline-label">Сьогодні</span>
+                  <p class="text_16">
+                    Львів формує партнерства з європейськими містами, залучає
+                    інвестиції і переймає найкращі практики, для того щоб
+                    зробити життя львівʼян комфортнішим. Ми не будуємо тут
+                    Амстердам, ми будуємо Львів для львівʼян.
+                  </p>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-label">Завтра</span>
+                  <p class="text_16">
+                    Місто, яке не лише надихається містами ЄМ, але й може з ними
+                    конкурувати на рівних: за гроші, за людей і за можливості.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="direction-card">
+              <h3 class="title_24">Економічний розвиток (Візія)</h3>
+              <p class="text_18">
+                Львів може більше, ніж просто реагувати на події — він може їх
+                формувати. Ми не можемо дозволити собі жити одним днем. Ми має
+                знати, куди рухається місто і яку економіку будує — не на рік і
+                не на п'ять років, а на десятиліття вперед. Бо економічно сильне
+                місто дає людям стабільність, роботу, можливості і відповідь на
+                головне питання, яке перед нами стоїть: «а що буде завтра?».
+              </p>
+              <div class="direction-timeline">
+                <div class="timeline-item">
+                  <span class="timeline-label">Сьогодні</span>
+                  <p class="text_16">
+                    Львів - надійний економічний тил: місце де бізнес може
+                    працює, люди - жити й планувати, а економіка - не
+                    зупинятись.
+                  </p>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-label">Завтра</span>
+                  <p class="text_16">
+                    Львів, який повертає собі свою справжню ідентичність. Місто,
+                    яке розвиває освіту, науку, технології, сервісні моделі,
+                    креативну економіку, інновації, логістику та міський туризм.
+                    Це місто, яке будує сильний ринок послуг та інтелекту — те,
+                    що історично давало йому конкурентну перевагу.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <div class="footer-column">
-            <h3 class="footer-title">Розташування</h3>
-            <div class="footer-info">
-              <div class="info-item">
+          <div class="footer-column footer-logo">
+            <a href="index.html" class="footer-logo-link">
+              <img src="./img/logo/logoLight.svg" alt="Львів може більше" />
+            </a>
+            <p class="text_16">
+              Львів може більше — місто, що живе сьогодні і створює завтра.
+            </p>
+          </div>
+
+          <div class="footer-column footer-nav">
+            <h4 class="title_20">Навігація</h4>
+            <ul class="footer-nav-list">
+              <li><a href="./index.html" class="footer-link">Головна</a></li>
+              <li><a href="./events.html" class="footer-link">Події</a></li>
+              <li><a href="./news.html" class="footer-link">Новини</a></li>
+              <li><a href="./contact.html" class="footer-link">Контакти</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column footer-contacts">
+            <h4 class="title_20">Контакти</h4>
+            <ul class="footer-contacts-list">
+              <li>
+                <a href="tel:+380XXXXXXXXX" class="footer-link">
+                  <img
+                    src="./img/phone.svg"
+                    alt="Телефон"
+                    class="footer-icon"
+                  />
+                  <span>+380 XX XXX XX XX</span>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:info@lmb.lviv.ua" class="footer-link">
+                  <img src="./img/mail.svg" alt="Email" class="footer-icon" />
+                  <span>info@lmb.lviv.ua</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-column footer-social">
+            <h4 class="title_20">Соціальні мережі</h4>
+            <ul class="footer-social-list">
+              <li>
                 <a
-                  href="https://maps.app.goo.gl/3K39DjQxKAC8Qer6A"
+                  href="#"
                   target="_blank"
-                  >м. Львів, вул. Любінська 6Б</a
+                  rel="noopener noreferrer"
+                  class="footer-social-link"
                 >
-              </div>
-            </div>
-          </div>
-
-          <div class="footer-column">
-            <h3 class="footer-title">Графік роботи</h3>
-            <div class="footer-info">
-              <div class="info-item">
-                <span>Пн - Пт: 9:00 - 18:00</span>
-              </div>
-              <div class="info-item">
-                <span>Сб: 9:00 - 15:00</span>
-              </div>
-              <div class="info-item">
-                <span>Нд: вихідний</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="footer-column">
-            <h3 class="footer-title">Зателефонувати</h3>
-            <div class="footer-info">
-              <div class="info-item">
-                <a href="tel:+380611111111">+38061 111 11 11</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="footer-column">
-            <h3 class="footer-title">Написати</h3>
-            <div class="footer-info">
-              <div class="info-item">
-                <a href="mailto:neurofocus2025@gmail.com"
-                  >neurofocus2025@gmail.com</a
-                >
-              </div>
-              <div class="social-media">
-                <a href="#" class="social-link">
                   <img src="./img/facebook.svg" alt="Facebook" />
                 </a>
-                <a href="#" class="social-link">
+              </li>
+              <li>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer-social-link"
+                >
                   <img src="./img/instagram.svg" alt="Instagram" />
                 </a>
-                <a href="#" class="social-link">
+              </li>
+              <li>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer-social-link"
+                >
                   <img src="./img/tiktok.svg" alt="TikTok" />
                 </a>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
+
         <div class="footer-bottom">
-          <p class="copyright">
-            © <span id="current-year">2025</span> НейроФокус. Всі права
-            захищені.
-          </p>
+          <p class="text_14">© 2025 Львів може більше. Всі права захищені.</p>
         </div>
       </div>
     </footer>

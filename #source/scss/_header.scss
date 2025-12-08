@@ -1,20 +1,34 @@
 .header {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 12px;
   width: 100%;
-  background: #ffffff;
-  backdrop-filter: blur(10px);
   z-index: 1000;
   transition: all 0.5s ease;
-  border-bottom: 1px solid #eee;
+  .container {
+    max-width: 1500px;
+  }
+  @media screen and (max-width: 1024px) {
+    .header-links.active ~ .burger-menu {
+      span {
+        background-color: transparent;
+        &::before,
+        &::after {
+          background-color: var(--black);
+        }
+      }
+    }
+  }
+
   .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
-    @media screen and (max-width: 1024px) {
-      height: 70px;
-    }
+    height: 75px;
+    padding: 8px 16px;
+    background-color: #00000063;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 15px;
   }
   .left {
     display: flex;
@@ -23,59 +37,90 @@
     height: 100%;
   }
   .header-logo {
-    width: 250px;
+    height: 100%;
     margin-right: 24px;
-    @media screen and (max-width: 1024px) {
-      width: 200px;
-    }
+
     img {
       width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
   }
 
   .right {
     display: flex;
     gap: 24px;
+    align-items: center;
     .header-links {
       display: flex;
       align-items: center;
       gap: 32px;
       transition: all 0.3s ease;
       @media screen and (max-width: 1024px) {
-        position: absolute;
+        position: fixed;
         background-color: #fff;
         height: 100vh;
-        right: 0;
-        top: -100vh;
+        right: -100%;
+        top: 0;
         flex-direction: column;
-        width: 500px;
+        width: 400px;
+        max-width: 85vw;
         align-items: flex-start;
-        padding: 24px;
-        opacity: 0;
+        padding: 100px 32px 32px;
+        transform: translateX(100%);
+        border-radius: 15px;
+        box-shadow: -2px 0 20px rgba(0, 0, 0, 0.15);
+        z-index: 999;
+        overflow-y: auto;
+        transition: transform 0.3s ease;
         &.active {
-          top: 71px;
-          opacity: 1;
+          right: 0;
+          transform: translateX(0);
         }
       }
       @media screen and (max-width: 768px) {
         width: 100%;
+        max-width: 100%;
+        padding: 90px 24px 24px;
       }
 
-      .header-link {
-        font-size: 16px;
-        color: #000;
-        font-weight: 400;
-        transition: all 0.1s linear;
-        display: flex;
-        align-items: center;
-        img {
-          width: 26px;
-          height: 26px;
-          margin-right: 8px;
+      .mobile-btn {
+        display: none;
+        @media screen and (max-width: 1024px) {
+          display: block;
+          width: 100%;
+          margin-top: 24px;
         }
-        &:hover {
-          color: var(--grey-blue);
-          text-decoration: underline;
+      }
+    }
+    .mobile-nav {
+      display: none;
+      width: 100%;
+      @media screen and (max-width: 1024px) {
+        display: block;
+      }
+      .nav-list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+      }
+      .nav-item {
+        padding: 16px 0;
+        &:not(:last-child) {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        a {
+          font-size: 18px;
+          color: var(--black);
+          width: 100%;
+          display: block;
+          transition: all 0.2s ease;
+          text-transform: uppercase;
+          font-weight: 500;
+          &:hover {
+            color: var(--green);
+          }
         }
       }
     }
@@ -87,6 +132,10 @@
     width: 50px;
     display: none;
     border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 1001;
+    position: relative;
     @media screen and (max-width: 1024px) {
       display: flex;
       justify-content: center;
@@ -95,11 +144,14 @@
     @media screen and (max-width: 768px) {
       order: 3;
     }
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
 
     span {
       min-width: 32px;
       height: 3px;
-      background-color: #000;
+      background-color: #fff;
       border-radius: 1px;
       position: relative;
       display: block;
@@ -107,33 +159,32 @@
       &::before,
       &::after {
         content: '';
-        width: 25px;
+        width: 32px;
         height: 3px;
         border-radius: 1px;
         position: absolute;
-        background-color: #000;
+        background-color: #fff;
+        transition: all 0.2s linear;
       }
       &::before {
         right: 0;
         top: -8px;
-        transition: all 0.2s linear;
       }
       &::after {
         right: 0;
         bottom: -8px;
-        transition: all 0.2s linear;
       }
     }
     &.active {
       span {
-        transform: rotate(45deg);
+        background-color: transparent;
         &::before {
-          opacity: 0;
+          top: 0;
+          transform: rotate(45deg);
         }
         &::after {
           bottom: 0;
-          transform: rotate(-90deg);
-          width: 32px;
+          transform: rotate(-45deg);
         }
       }
     }
@@ -141,27 +192,54 @@
   .btn {
     position: relative;
     overflow: hidden;
-    &::after {
-      content: 'Консультація';
-      background: var(--gradient);
-      color: #fff;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transition: all 0.2s ease;
+    border-radius: 15px;
+    white-space: nowrap;
+    border: 1px solid #fff;
+    color: #ffffff;
+    @media screen and (max-width: 1024px) {
+      border: 1px solid var(--black);
+      color: var(--black);
+      background-color: transparent;
+      &:hover {
+        background-color: var(--black);
+        color: #fff;
+      }
     }
     &:hover,
     &:focus {
-      border: 1px solid var(--light-green);
-      &::after {
-        opacity: 1;
+      border: 1px solid var(--yellow);
+      color: var(--yellow);
+      @media screen and (max-width: 1024px) {
+        border: 1px solid var(--black);
+        background-color: var(--black);
+        color: #fff;
       }
+    }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    .nav-list {
+      padding: 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      .nav-item {
+        a {
+          font-size: 16px;
+          color: #ffffff;
+          text-transform: uppercase;
+          transition: all 0.1s ease;
+          position: relative;
+          &:hover {
+            color: var(--yellow);
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 1024px) {
+      display: none;
     }
   }
 }
