@@ -472,6 +472,14 @@ h6 {
   .header .header-links.active ~ .burger-menu span::before, .header .header-links.active ~ .burger-menu span::after {
     background-color: var(--black);
   }
+  .header .header-container:has(.header-links.active) .header-logo img {
+    -webkit-filter: brightness(0);
+            filter: brightness(0);
+    -webkit-transition: -webkit-filter 0.3s ease;
+    transition: -webkit-filter 0.3s ease;
+    transition: filter 0.3s ease;
+    transition: filter 0.3s ease, -webkit-filter 0.3s ease;
+  }
 }
 .header .header-container {
   display: -webkit-box;
@@ -516,6 +524,8 @@ h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+  z-index: 1001;
 }
 .header .header-logo img {
   height: 100%;
@@ -813,7 +823,7 @@ h6 {
 @media screen and (max-width: 768px) {
   .hero .wrapper {
     min-height: auto;
-    padding: 150px 0 60px;
+    padding: 130px 0 40px;
   }
 }
 .hero .container {
@@ -843,7 +853,7 @@ h6 {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    gap: 40px;
+    gap: 20px;
   }
 }
 .hero .card {
@@ -880,7 +890,7 @@ h6 {
 @media screen and (max-width: 768px) {
   .hero .logo-mark-tr {
     width: 100%;
-    max-width: 250px;
+    max-width: 200px;
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;

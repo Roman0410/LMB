@@ -17,6 +17,10 @@
         }
       }
     }
+    .header-container:has(.header-links.active) .header-logo img {
+      filter: brightness(0);
+      transition: filter 0.3s ease;
+    }
   }
 
   .header-container {
@@ -50,6 +54,8 @@
     height: 58px; /* стабільно на айфоні */
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 1001;
   }
 
   .header-logo img {

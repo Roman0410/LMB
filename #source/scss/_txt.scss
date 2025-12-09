@@ -143,6 +143,8 @@
     -ms-border-radius: 14px 0 0 0;
     -o-border-radius: 14px 0 0 0;
   }
+  @media screen and (max-width: 768px) {
+    font-size: 40px;
 }
 
 // Всі заголовки використовують Artegra
