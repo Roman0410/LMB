@@ -23,19 +23,18 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    /* Фікс */
-    min-height: 75px;
+    min-height: 64px;
     height: auto;
-
-    padding: 8px 16px;
+    padding: 0px 16px;
     padding-left: calc(16px + env(safe-area-inset-left));
     padding-right: calc(16px + env(safe-area-inset-right));
-
     background-color: #00000063;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: 15px;
+    @media screen and (max-width: 1024px) {
+      padding: 8px 12px;
+    }
   }
 
   /* Ліва частина */
@@ -103,6 +102,9 @@
       display: block;
       width: 100%;
       margin-top: 24px;
+      border: 1px solid var(--black);
+      color: var(--black);
+      background-color: transparent;
     }
   }
 
@@ -223,23 +225,12 @@
     border: 1px solid #fff;
     color: #ffffff;
     @media screen and (max-width: 1024px) {
-      border: 1px solid var(--black);
-      color: var(--black);
-      background-color: transparent;
-      &:hover {
-        background-color: var(--black);
-        color: #fff;
-      }
+      display: none;
     }
     &:hover,
     &:focus {
       border: 1px solid var(--yellow);
       color: var(--yellow);
-      @media screen and (max-width: 1024px) {
-        border: 1px solid var(--black);
-        background-color: var(--black);
-        color: #fff;
-      }
     }
   }
   .nav {
