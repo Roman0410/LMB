@@ -497,13 +497,10 @@ h6 {
 }
 .header .header-logo {
   height: 100%;
-  margin-right: 24px;
 }
 .header .header-logo img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
 }
 .header .right {
   display: -webkit-box;
