@@ -23,104 +23,133 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 75px;
+
+    /* Фікс */
+    min-height: 75px;
+    height: auto;
+
     padding: 8px 16px;
+    padding-left: calc(16px + env(safe-area-inset-left));
+    padding-right: calc(16px + env(safe-area-inset-right));
+
     background-color: #00000063;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: 15px;
   }
+
+  /* Ліва частина */
   .left {
     display: flex;
     align-items: center;
     gap: 64px;
-    height: 100%;
-  }
-  .header-logo {
-    height: 100%;
-    img {
-      width: 100%;
-      height: 100%;
-    }
+    height: auto;
   }
 
+  /* ЛОГО */
+  .header-logo {
+    height: 58px; /* стабільно на айфоні */
+    display: flex;
+    align-items: center;
+  }
+
+  .header-logo img {
+    height: 100%;
+    width: auto; /* замість 100% */
+    object-fit: contain;
+  }
+
+  /* Права частина */
   .right {
     display: flex;
     gap: 24px;
     align-items: center;
-    .header-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      transition: all 0.3s ease;
-      @media screen and (max-width: 1024px) {
-        position: fixed;
-        background-color: #fff;
-        height: 100vh;
-        right: -100%;
-        top: 0;
-        flex-direction: column;
-        width: 400px;
-        max-width: 85vw;
-        align-items: flex-start;
-        padding: 100px 32px 32px;
-        transform: translateX(100%);
-        border-radius: 15px;
-        box-shadow: -2px 0 20px rgba(0, 0, 0, 0.15);
-        z-index: 999;
-        overflow-y: auto;
-        transition: transform 0.3s ease;
-        &.active {
-          right: 0;
-          transform: translateX(0);
-        }
-      }
-      @media screen and (max-width: 768px) {
-        width: 100%;
-        max-width: 100%;
-        padding: 90px 24px 24px;
-      }
+  }
 
-      .mobile-btn {
-        display: none;
-        @media screen and (max-width: 1024px) {
-          display: block;
-          width: 100%;
-          margin-top: 24px;
-        }
-      }
+  /* Мобільне меню */
+  .right .header-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    transition: all 0.3s ease;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .right .header-links {
+      position: fixed;
+      background-color: #fff;
+      height: 100vh;
+      right: -100%;
+      top: 0;
+      flex-direction: column;
+      width: 400px;
+      max-width: 85vw;
+      align-items: flex-start;
+      padding: 100px 32px 32px;
+      transform: translateX(100%);
+      border-radius: 15px;
+      box-shadow: -2px 0 20px rgba(0, 0, 0, 0.15);
+      z-index: 999;
+      overflow-y: auto;
+      transition: transform 0.3s ease;
     }
-    .mobile-nav {
-      display: none;
+
+    .right .header-links.active {
+      right: 0;
+      transform: translateX(0);
+    }
+
+    .right .header-links .mobile-btn {
+      display: block;
       width: 100%;
-      @media screen and (max-width: 1024px) {
-        display: block;
-      }
-      .nav-list {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 0;
-      }
-      .nav-item {
-        padding: 16px 0;
-        &:not(:last-child) {
-          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        a {
-          font-size: 18px;
-          color: var(--black);
-          width: 100%;
-          display: block;
-          transition: all 0.2s ease;
-          text-transform: uppercase;
-          font-weight: 500;
-          &:hover {
-            color: var(--green);
-          }
-        }
-      }
+      margin-top: 24px;
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    .right .header-links {
+      width: 100%;
+      max-width: 100%;
+      padding: 90px 24px 24px;
+    }
+  }
+
+  /* Моб навігація */
+  .right .mobile-nav {
+    display: none;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .right .mobile-nav {
+      display: block;
+    }
+  }
+
+  .right .mobile-nav .nav-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+
+  .right .mobile-nav .nav-item {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .right .mobile-nav .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .right .mobile-nav .nav-item a {
+    font-size: 18px;
+    color: var(--black);
+    width: 100%;
+    display: block;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    font-weight: 500;
   }
 
   .burger-menu {
