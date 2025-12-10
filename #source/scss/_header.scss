@@ -17,10 +17,6 @@
         }
       }
     }
-    .header-container:has(.header-links.active) .header-logo img {
-      filter: brightness(0);
-      transition: filter 0.3s ease;
-    }
   }
 
   .header-container {
@@ -56,6 +52,9 @@
     align-items: center;
     position: relative;
     z-index: 1001;
+    @media screen and (max-width: 1024px) {
+      z-index: 1002;
+    }
   }
 
   .header-logo img {

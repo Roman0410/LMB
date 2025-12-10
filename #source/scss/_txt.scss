@@ -122,29 +122,30 @@
   margin: 0 auto;
   margin-bottom: 40px;
   &::after {
-    content: 'ЛЬВІВ МОЖЕ БІЛЬШЕ';
-    font-size: 9px;
-    letter-spacing: 2px;
-    font-weight: 500;
-    color: var(--yellow);
+    content: '';
+    width: 30px;
+    height: 40px;
+    border-bottom: 2px solid var(--yellow);
+    border-right: 2px solid var(--yellow);
+    position: absolute;
+    right: -15px;
+    bottom: 0px;
+    border-radius: 0 0 14px 0;
   }
   &::before {
     content: '';
-    width: 25px;
-    height: 35px;
-    border-top: 2px solid #25252585;
-    border-left: 2px solid #25252585;
+    width: 30px;
+    height: 40px;
+    border-top: 2px solid var(--yellow);
+    border-left: 2px solid var(--yellow);
     position: absolute;
     left: -12px;
     top: -8px;
     border-radius: 14px 0 0 0;
-    -webkit-border-radius: 14px 0 0 0;
-    -moz-border-radius: 14px 0 0 0;
-    -ms-border-radius: 14px 0 0 0;
-    -o-border-radius: 14px 0 0 0;
   }
   @media screen and (max-width: 768px) {
     font-size: 40px;
+  }
 }
 
 // Всі заголовки використовують Artegra

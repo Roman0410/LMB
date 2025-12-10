@@ -232,6 +232,43 @@ $(function () {
     setTimeout(equalizeTeamInfoHeights, 0);
   }
 
+  // Слайдер учасників платформи
+  if ($('.participants-slider').length && typeof $.fn.slick === 'function') {
+    $('.participants-slider').slick({
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      arrows: true,
+      dots: false,
+      infinite: true,
+      adaptiveHeight: false,
+      prevArrow: '.participants-arrow-prev',
+      nextArrow: '.participants-arrow-next',
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+          },
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    });
+  }
+
   if (
     document.getElementById('contactForm') &&
     typeof window.JustValidate !== 'undefined'
