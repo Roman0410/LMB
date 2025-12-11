@@ -1,12 +1,9 @@
 .hero {
-  height: 90vh;
+  height: 100vh;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
-  @media screen and (max-width: 768px) {
-    height: auto;
-  }
 
   .background-hero {
     position: absolute;
@@ -221,6 +218,157 @@
       text-align: center;
       @media screen and (max-width: 768px) {
         margin-bottom: 24px;
+      }
+    }
+  }
+
+  .foundation-history {
+    margin-top: 48px;
+    padding: 48px 40px;
+    background-color: #fff;
+    border-radius: 20px;
+    position: relative;
+    @media screen and (max-width: 768px) {
+      margin-top: 32px;
+      padding: 32px 24px;
+      border-radius: 16px;
+    }
+
+    .foundation-history-title {
+      font-family: 'Artegra Sans', 'Roboto', sans-serif;
+      font-size: 40px;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-align: center;
+      width: fit-content;
+      margin: 0 auto;
+      margin-bottom: 40px;
+      color: var(--black);
+      @media screen and (max-width: 768px) {
+        font-size: 30px;
+        margin-bottom: 32px;
+      }
+    }
+
+    .timeline {
+      position: relative;
+      padding: 40px 0 20px;
+      @media screen and (max-width: 768px) {
+        padding: 20px 0;
+      }
+
+      .timeline-line {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(
+          to right,
+          rgba(34, 37, 45, 0.15) 0%,
+          rgba(34, 37, 45, 0.25) 100%
+        );
+        z-index: 0;
+        @media screen and (max-width: 768px) {
+          display: none;
+        }
+      }
+
+      .timeline-items {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        position: relative;
+        z-index: 1;
+        gap: 12px;
+        @media screen and (max-width: 1200px) {
+          gap: 8px;
+        }
+        @media screen and (max-width: 1024px) {
+          flex-wrap: wrap;
+          gap: 24px;
+          justify-content: center;
+        }
+        @media screen and (max-width: 768px) {
+          flex-direction: column;
+          gap: 24px;
+        }
+      }
+
+      .timeline-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        min-width: 0;
+        @media screen and (max-width: 1024px) {
+          flex: 0 0 calc(50% - 12px);
+          max-width: 200px;
+        }
+        @media screen and (max-width: 768px) {
+          flex-direction: row;
+          align-items: flex-start;
+          text-align: left;
+          gap: 20px;
+          flex: 1;
+          max-width: 100%;
+        }
+
+        .timeline-year {
+          padding: 10px 18px;
+          background-color: var(--yellow);
+          color: var(--green);
+          font-family: 'Artegra Sans', 'Roboto', sans-serif;
+          font-size: 17px;
+          font-weight: 700;
+          border-radius: 10px;
+          margin-bottom: 16px;
+          white-space: nowrap;
+          transition: all 0.3s ease;
+          @media screen and (max-width: 1200px) {
+            font-size: 15px;
+            padding: 8px 14px;
+          }
+          @media screen and (max-width: 768px) {
+            margin-bottom: 0;
+            font-size: 15px;
+            padding: 8px 16px;
+            min-width: 90px;
+            flex-shrink: 0;
+          }
+        }
+
+        .timeline-description {
+          font-size: 15px;
+          color: var(--black);
+          line-height: 1.6;
+          margin: 0;
+          font-weight: 400;
+          @media screen and (max-width: 1200px) {
+            font-size: 14px;
+          }
+          @media screen and (max-width: 768px) {
+            font-size: 14px;
+            flex: 1;
+            padding-top: 2px;
+          }
+        }
+
+        &.timeline-item-active {
+          .timeline-year {
+            background-color: var(--green);
+            color: #fff;
+            transform: translateY(-2px);
+          }
+        }
+
+        &:hover:not(.timeline-item-active) {
+          .timeline-year {
+            transform: translateY(-2px);
+          }
+        }
       }
     }
   }

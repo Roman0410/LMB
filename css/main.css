@@ -792,7 +792,7 @@ h6 {
 }
 
 .hero {
-  height: 90vh;
+  height: 100vh;
   position: relative;
   overflow: hidden;
   display: -webkit-box;
@@ -801,11 +801,6 @@ h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-@media screen and (max-width: 768px) {
-  .hero {
-    height: auto;
-  }
 }
 .hero .background-hero {
   position: absolute;
@@ -1069,6 +1064,204 @@ h6 {
   .about-us .about-intro p {
     margin-bottom: 24px;
   }
+}
+.about-us .foundation-history {
+  margin-top: 48px;
+  padding: 48px 40px;
+  background-color: #fff;
+  border-radius: 20px;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .about-us .foundation-history {
+    margin-top: 32px;
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+}
+.about-us .foundation-history .foundation-history-title {
+  font-family: "Artegra Sans", "Roboto", sans-serif;
+  font-size: 40px;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  color: var(--black);
+}
+@media screen and (max-width: 768px) {
+  .about-us .foundation-history .foundation-history-title {
+    font-size: 30px;
+    margin-bottom: 32px;
+  }
+}
+.about-us .foundation-history .timeline {
+  position: relative;
+  padding: 40px 0 20px;
+}
+@media screen and (max-width: 768px) {
+  .about-us .foundation-history .timeline {
+    padding: 20px 0;
+  }
+}
+.about-us .foundation-history .timeline .timeline-line {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(34, 37, 45, 0.15)), to(rgba(34, 37, 45, 0.25)));
+  background: linear-gradient(to right, rgba(34, 37, 45, 0.15) 0%, rgba(34, 37, 45, 0.25) 100%);
+  z-index: 0;
+}
+@media screen and (max-width: 768px) {
+  .about-us .foundation-history .timeline .timeline-line {
+    display: none;
+  }
+}
+.about-us .foundation-history .timeline .timeline-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  position: relative;
+  z-index: 1;
+  gap: 12px;
+}
+@media screen and (max-width: 1200px) {
+  .about-us .foundation-history .timeline .timeline-items {
+    gap: 8px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .about-us .foundation-history .timeline .timeline-items {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 24px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-us .foundation-history .timeline .timeline-items {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 24px;
+  }
+}
+.about-us .foundation-history .timeline .timeline-item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  position: relative;
+  min-width: 0;
+}
+@media screen and (max-width: 1024px) {
+  .about-us .foundation-history .timeline .timeline-item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(50% - 12px);
+            flex: 0 0 calc(50% - 12px);
+    max-width: 200px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-us .foundation-history .timeline .timeline-item {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    text-align: left;
+    gap: 20px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    max-width: 100%;
+  }
+}
+.about-us .foundation-history .timeline .timeline-item .timeline-year {
+  padding: 10px 18px;
+  background-color: var(--yellow);
+  color: var(--green);
+  font-family: "Artegra Sans", "Roboto", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  white-space: nowrap;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+@media screen and (max-width: 1200px) {
+  .about-us .foundation-history .timeline .timeline-item .timeline-year {
+    font-size: 15px;
+    padding: 8px 14px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-us .foundation-history .timeline .timeline-item .timeline-year {
+    margin-bottom: 0;
+    font-size: 15px;
+    padding: 8px 16px;
+    min-width: 90px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+  }
+}
+.about-us .foundation-history .timeline .timeline-item .timeline-description {
+  font-size: 15px;
+  color: var(--black);
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+}
+@media screen and (max-width: 1200px) {
+  .about-us .foundation-history .timeline .timeline-item .timeline-description {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about-us .foundation-history .timeline .timeline-item .timeline-description {
+    font-size: 14px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    padding-top: 2px;
+  }
+}
+.about-us .foundation-history .timeline .timeline-item.timeline-item-active .timeline-year {
+  background-color: var(--green);
+  color: #fff;
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+.about-us .foundation-history .timeline .timeline-item:hover:not(.timeline-item-active) .timeline-year {
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
 }
 .about-us .highlight-box {
   padding: 24px 32px;
