@@ -344,6 +344,220 @@ $(function () {
       $('#cf-correction').val($(this).val());
     });
   }
+  // Завантаження відео з YouTube через Google API
+  function loadYouTubeVideos() {
+    const videosContainer = document.getElementById('videosContainer');
+    if (!videosContainer) return;
+
+    // YouTube Data API v3 ключ
+    const API_KEY = 'AIzaSyAbMm6H1BfglY0F7_JWA7LMtRNERQ6PC0I';
+    const channelHandle = '@lmb_2056'; // Handle каналу з @
+
+    // Для нових каналів з handle (@username) використовуємо пошук
+    // Спочатку знаходимо канал через пошук
+    fetch(
+      `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&q=${encodeURIComponent(
+        channelHandle
+      )}&part=snippet&type=channel&maxResults=1`
+    )
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((err) => {
+            throw new Error(err.error?.message || 'API Error');
+          });
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (data.items && data.items.length > 0) {
+          const channelId = data.items[0].id.channelId;
+          // Отримуємо відео через videos.list (краще для фільтрації)
+          // Спочатку отримуємо uploads playlist ID
+          return fetch(
+            `https://www.googleapis.com/youtube/v3/channels?key=${API_KEY}&id=${channelId}&part=contentDetails`
+          );
+        } else {
+          throw new Error('Канал не знайдено');
+        }
+      })
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((err) => {
+            throw new Error(err.error?.message || 'API Error');
+          });
+        }
+        return response.json();
+      })
+      .then((channelData) => {
+        if (channelData.items && channelData.items.length > 0) {
+          const uploadsPlaylistId =
+            channelData.items[0].contentDetails.relatedPlaylists.uploads;
+          // Отримуємо відео з uploads playlist
+          return fetch(
+            `https://www.googleapis.com/youtube/v3/playlistItems?key=${API_KEY}&playlistId=${uploadsPlaylistId}&part=snippet,contentDetails&maxResults=50&order=date`
+          );
+        } else {
+          throw new Error('Playlist не знайдено');
+        }
+      })
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((err) => {
+            throw new Error(err.error?.message || 'API Error');
+          });
+        }
+        return response.json();
+      })
+      .then((playlistData) => {
+        if (playlistData.items && playlistData.items.length > 0) {
+          // Отримуємо деталі відео для фільтрації Shorts
+          const videoIds = playlistData.items
+            .slice(0, 10)
+            .map((item) => item.contentDetails.videoId)
+            .join(',');
+
+          return fetch(
+            `https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&id=${videoIds}&part=contentDetails,snippet`
+          );
+        } else {
+          throw new Error('Відео не знайдено');
+        }
+      })
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((err) => {
+            throw new Error(err.error?.message || 'API Error');
+          });
+        }
+        return response.json();
+      })
+      .then((videosData) => {
+        if (videosData.items && videosData.items.length > 0) {
+          // Фільтруємо Shorts (відео менше 60 секунд)
+          const regularVideos = videosData.items.filter((video) => {
+            const duration = video.contentDetails.duration;
+            // Парсимо ISO 8601 duration (наприклад, PT1M30S = 90 секунд)
+            const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+            if (match) {
+              const hours = parseInt(match[1] || 0);
+              const minutes = parseInt(match[2] || 0);
+              const seconds = parseInt(match[3] || 0);
+              const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+              // Виключаємо відео коротші за 60 секунд (Shorts)
+              return totalSeconds >= 60;
+            }
+            return true;
+          });
+
+          // Беремо перші 3 регулярні відео
+          const topVideos = regularVideos.slice(0, 3);
+          if (topVideos.length > 0) {
+            displayVideos(topVideos);
+          } else {
+            showVideoError('Регулярні відео не знайдено');
+          }
+        } else {
+          showVideoError('Відео не знайдено на каналі');
+        }
+      })
+      .catch((error) => {
+        console.error('Error loading videos:', error);
+        let errorMessage = 'Помилка завантаження відео';
+
+        if (error.message.includes('API key')) {
+          errorMessage = 'Невірний API ключ. Перевірте налаштування.';
+        } else if (error.message.includes('quota')) {
+          errorMessage = 'Перевищено квоту API. Спробуйте пізніше.';
+        } else if (error.message) {
+          errorMessage = error.message;
+        }
+
+        showVideoError(errorMessage);
+      });
+  }
+
+  function displayVideos(videos) {
+    const videosContainer = document.getElementById('videosContainer');
+    if (!videosContainer) return;
+
+    videosContainer.innerHTML = '';
+
+    videos.forEach((video) => {
+      const videoId = video.id || video.id.videoId;
+      const title = video.snippet.title;
+      const thumbnail =
+        video.snippet.thumbnails.medium?.url ||
+        video.snippet.thumbnails.high?.url ||
+        video.snippet.thumbnails.default?.url;
+
+      const videoElement = createVideoCard(videoId, title, thumbnail);
+      videosContainer.appendChild(videoElement);
+    });
+  }
+
+  function createVideoCard(videoId, title, thumbnail) {
+    const card = document.createElement('div');
+    card.className = 'video-card';
+    card.innerHTML = `
+      <div class="video-thumbnail-wrapper">
+        <div class="video-thumbnail" data-video-id="${videoId}">
+          <img src="${thumbnail}" alt="${title}" loading="lazy" />
+          <div class="video-play-icon">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="32" r="32" fill="rgba(0, 0, 0, 0.6)"/>
+              <path d="M26 20L26 44L42 32L26 20Z" fill="white"/>
+            </svg>
+          </div>
+        </div>
+        <div class="video-player-container" id="player-${videoId}" style="display: none;">
+        </div>
+      </div>
+      <h3 class="video-title">${title}</h3>
+    `;
+
+    // Додаємо обробник кліку для відтворення відео
+    const thumbnailEl = card.querySelector('.video-thumbnail');
+    const playerContainer = card.querySelector('.video-player-container');
+    let isVideoLoaded = false;
+
+    thumbnailEl.addEventListener('click', function () {
+      // Приховуємо thumbnail і показуємо плеєр
+      thumbnailEl.style.display = 'none';
+      playerContainer.style.display = 'block';
+      playerContainer.style.aspectRatio = '16 / 9';
+
+      // Створюємо iframe тільки при кліку
+      if (!isVideoLoaded) {
+        const iframe = document.createElement('iframe');
+        iframe.width = '100%';
+        iframe.height = '100%';
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+        iframe.frameBorder = '0';
+        iframe.allow =
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        playerContainer.appendChild(iframe);
+        isVideoLoaded = true;
+      }
+    });
+
+    return card;
+  }
+
+  function showVideoError(message) {
+    const videosContainer = document.getElementById('videosContainer');
+    if (videosContainer) {
+      videosContainer.innerHTML = `<p class="video-error">${
+        message || 'Не вдалося завантажити відео'
+      }</p>`;
+    }
+  }
+
+  // Завантажуємо відео при завантаженні сторінки
+  if (document.getElementById('videosContainer')) {
+    loadYouTubeVideos();
+  }
+
   function scrollToCenterWithHeader(element, headerHeight = 0) {
     if (!element) return;
 
