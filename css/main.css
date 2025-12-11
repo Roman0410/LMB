@@ -641,6 +641,23 @@ h6 {
   transition: all 0.2s ease;
   text-transform: uppercase;
   font-weight: 500;
+  position: relative;
+}
+.header .right .mobile-nav .nav-item a.active {
+  color: var(--yellow);
+  font-weight: 600;
+}
+.header .right .mobile-nav .nav-item a.active::before {
+  content: "";
+  position: absolute;
+  left: -32px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 4px;
+  height: 24px;
+  background-color: var(--yellow);
+  border-radius: 0 2px 2px 0;
 }
 .header .burger-menu {
   padding: 0 16px;
@@ -763,6 +780,9 @@ h6 {
   position: relative;
 }
 .header .nav .nav-list .nav-item a:hover {
+  color: var(--yellow);
+}
+.header .nav .nav-list .nav-item a.active {
   color: var(--yellow);
 }
 @media screen and (max-width: 1024px) {
@@ -1844,6 +1864,13 @@ h6 {
 .youtube-videos .video-card:hover {
   -webkit-transform: translateY(-4px);
           transform: translateY(-4px);
+}
+.youtube-videos .video-card iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  border: none;
 }
 .youtube-videos .video-thumbnail-wrapper {
   position: relative;

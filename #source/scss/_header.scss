@@ -157,6 +157,24 @@
     transition: all 0.2s ease;
     text-transform: uppercase;
     font-weight: 500;
+    position: relative;
+
+    &.active {
+      color: var(--yellow);
+      font-weight: 600;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -32px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 24px;
+        background-color: var(--yellow);
+        border-radius: 0 2px 2px 0;
+      }
+    }
   }
 
   .burger-menu {
@@ -255,6 +273,10 @@
           transition: all 0.1s ease;
           position: relative;
           &:hover {
+            color: var(--yellow);
+          }
+
+          &.active {
             color: var(--yellow);
           }
         }
