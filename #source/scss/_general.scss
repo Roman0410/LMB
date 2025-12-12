@@ -57,7 +57,6 @@ p {
   margin: 0;
   cursor: default;
   line-height: 1.5;
-  vertical-align: baseline;
 }
 a {
   text-decoration: none;
@@ -105,7 +104,7 @@ section {
   font-weight: 500;
   line-height: normal;
   padding: 12px 24px;
-  border-radius: 15px;
+  border-radius: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,7 +112,6 @@ section {
   gap: 8px;
   border: 1px solid #111827;
   cursor: pointer;
-
   &.white {
     background-color: #fff;
     color: #111827;

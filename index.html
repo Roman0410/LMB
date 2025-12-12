@@ -4,29 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Львів може більше</title>
+
+    <!-- Preconnect для швидшого завантаження зовнішніх ресурсів -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://www.youtube.com" />
+
+    <!-- Критичний CSS першим -->
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- Некритичні CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+      />
+    </noscript>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+      media="print"
+      onload="this.media='all'"
     />
-    <link rel="stylesheet" href="./css/main.css" />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+      />
+    </noscript>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+      media="print"
+      onload="this.media='all'"
     />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+      />
+    </noscript>
+
+    <!-- Шрифти з font-display: swap -->
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
+
     <link rel="icon" href="./img/fav.svg" />
   </head>
   <body>
@@ -105,7 +137,7 @@
           <div class="card">
             <h1 class="hero-title">
               <span>Львів може більше</span> — місто, що живе сьогодні і створює
-              завтра.
+              завтра
             </h1>
             <p class="text">
               <span>ЛМБ</span> — це візійна платформа розвитку міста, створена
@@ -201,7 +233,11 @@
           <div class="founders-cards">
             <div class="founder-card">
               <div class="founder-photo">
-                <img src="./img/stepan.JPG" alt="Степан Куйбіда" />
+                <img
+                  src="./img/stepan.JPG"
+                  alt="Степан Куйбіда"
+                  loading="lazy"
+                />
               </div>
               <div class="founder-info">
                 <h3 class="title_24">Степан Куйбіда</h3>
@@ -213,7 +249,7 @@
 
             <div class="founder-card">
               <div class="founder-photo">
-                <img src="./img/taras.JPG" alt="Тарас Хавунка" />
+                <img src="./img/taras.JPG" alt="Тарас Хавунка" loading="lazy" />
               </div>
               <div class="founder-info">
                 <h3 class="title_24">Тарас Хавунка</h3>
@@ -229,7 +265,11 @@
             <div class="participants-slider">
               <div class="participant-card">
                 <div class="participant-photo">
-                  <img src="./img/dmytro.JPG" alt="Дмитро Шеренговський" />
+                  <img
+                    src="./img/dmytro.JPG"
+                    alt="Дмитро Шеренговський"
+                    loading="lazy"
+                  />
                 </div>
                 <div class="participant-info">
                   <h3 class="title_20">Дмитро Шеренговський</h3>
@@ -242,7 +282,11 @@
 
               <div class="participant-card">
                 <div class="participant-photo">
-                  <img src="./img/valentyn.PNG" alt="Валентин Середюк" />
+                  <img
+                    src="./img/valentyn.PNG"
+                    alt="Валентин Середюк"
+                    loading="lazy"
+                  />
                 </div>
                 <div class="participant-info">
                   <h3 class="title_20">Валентин Середюк</h3>
@@ -252,7 +296,11 @@
 
               <div class="participant-card">
                 <div class="participant-photo">
-                  <img src="./img/volodymur.JPG" alt="Володимир Марусяк" />
+                  <img
+                    src="./img/volodymur.JPG"
+                    alt="Володимир Марусяк"
+                    loading="lazy"
+                  />
                 </div>
                 <div class="participant-info">
                   <h3 class="title_20">Володимир Марусяк</h3>
@@ -267,6 +315,7 @@
                   <img
                     src="./img/participants/participant-1.jpg"
                     alt="Андрій Павлів"
+                    loading="lazy"
                   />
                 </div>
                 <div class="participant-info">
@@ -291,7 +340,12 @@
       </div>
     </section>
     <section class="what-we-do" id="what-we-do">
-      <img src="./img/markTr.svg" alt="" class="background-img" />
+      <img
+        src="./img/markTr.svg"
+        alt=""
+        class="background-img"
+        loading="lazy"
+      />
       <div class="container">
         <h2 class="section-title">Що ми робимо?</h2>
         <div class="what-we-do-content">
@@ -346,6 +400,7 @@
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
+              loading="lazy"
             ></iframe>
           </div>
           <div class="video-card">
@@ -358,6 +413,7 @@
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
+              loading="lazy"
             ></iframe>
           </div>
           <div class="video-card">
@@ -370,6 +426,7 @@
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
+              loading="lazy"
             ></iframe>
           </div>
         </div>
@@ -459,11 +516,11 @@
         </div>
       </div>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="./js/jquery.min.js"></script>
-    <script src="./js/slick.min.js"></script>
-    <script src="./js/just-validate.production.min.js"></script>
-    <script src="./js/fancybox.umd.js"></script>
-    <script src="./js/main.js"></script>
+    <!-- Скрипти з defer для неблокуючого завантаження -->
+    <script src="./js/jquery.min.js" defer></script>
+    <script src="./js/slick.min.js" defer></script>
+    <script src="./js/just-validate.production.min.js" defer></script>
+    <script src="./js/fancybox.umd.js" defer></script>
+    <script src="./js/main.js" defer></script>
   </body>
 </html>

@@ -243,7 +243,7 @@
   .btn {
     position: relative;
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: 12px; // Гармонійно відносно контейнера (15px) - трохи менше для візуального балансу
     white-space: nowrap;
     border: 1px solid #fff;
     color: #ffffff;
