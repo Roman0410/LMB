@@ -2777,11 +2777,25 @@ h6 {
 }
 .single-post .single-post-cta {
   margin-top: 48px;
+  text-align: center;
+  padding-top: 32px;
+  border-top: 1px solid rgba(34, 37, 45, 0.1);
 }
 @media screen and (max-width: 768px) {
   .single-post .single-post-cta {
     margin-top: 40px;
+    padding-top: 24px;
   }
+}
+.single-post .single-post-cta .btn {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.single-post .single-post-cta .btn:hover {
+  background-color: var(--black);
+  color: #fff;
 }
 
 .contact {

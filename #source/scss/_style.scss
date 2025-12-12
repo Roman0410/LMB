@@ -1635,6 +1635,15 @@
       margin-top: 40px;
       padding-top: 24px;
     }
+    .btn {
+      transition: all 0.2s ease;
+      max-width: 300px;
+      margin: 0 auto;
+      &:hover {
+        background-color: var(--black);
+        color: #fff;
+      }
+    }
   }
 }
 
