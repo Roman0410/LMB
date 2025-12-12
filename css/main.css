@@ -1467,7 +1467,7 @@ h6 {
 }
 .founders .founder-photo {
   width: 280px;
-  height: 330px;
+  height: 350px;
   border-radius: 14px;
   overflow: hidden;
   -ms-flex-negative: 0;
@@ -1477,7 +1477,6 @@ h6 {
 @media screen and (max-width: 768px) {
   .founders .founder-photo {
     width: 80%;
-    height: 300px;
   }
 }
 .founders .founder-photo img {
@@ -1485,8 +1484,8 @@ h6 {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  -o-object-position: top;
+     object-position: top;
 }
 .founders .founder-info {
   -webkit-box-flex: 1;
@@ -1678,6 +1677,8 @@ h6 {
   .founders .participant-photo {
     border-radius: 10px;
     margin-bottom: 12px;
+    width: 80%;
+    height: 350px;
   }
 }
 .founders .participant-photo img {
@@ -1685,6 +1686,8 @@ h6 {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
   display: block;
 }
 .founders .participant-info h3 {
