@@ -975,11 +975,11 @@ h6 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 18px 40px;
+  padding: 13px 40px;
   background-color: var(--yellow);
   color: var(--black);
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 700;
   border-radius: 12px;
   border: 2px solid var(--yellow);
   -webkit-transition: all 0.3s ease;
@@ -990,14 +990,11 @@ h6 {
 }
 @media screen and (max-width: 1024px) {
   .hero .hero-btn {
-    padding: 16px 36px;
-    font-size: 17px;
+    padding: 12px 36px;
   }
 }
 @media screen and (max-width: 768px) {
   .hero .hero-btn {
-    font-size: 16px;
-    padding: 16px 32px;
     width: 100%;
     letter-spacing: 0.3px;
   }
@@ -1008,8 +1005,6 @@ h6 {
   border-color: var(--yellow);
   -webkit-transform: translateY(-2px);
           transform: translateY(-2px);
-  -webkit-box-shadow: 0 4px 12px rgba(255, 191, 2, 0.3);
-          box-shadow: 0 4px 12px rgba(255, 191, 2, 0.3);
 }
 .hero .hero-btn:active {
   -webkit-transform: translateY(0);

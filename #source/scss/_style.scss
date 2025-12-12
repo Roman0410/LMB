@@ -151,11 +151,11 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 18px 40px;
+    padding: 13px 40px;
     background-color: var(--yellow);
     color: var(--black);
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 700;
     border-radius: 12px;
     border: 2px solid var(--yellow);
     transition: all 0.3s ease;
@@ -163,12 +163,9 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     @media screen and (max-width: 1024px) {
-      padding: 16px 36px;
-      font-size: 17px;
+      padding: 12px 36px;
     }
     @media screen and (max-width: 768px) {
-      font-size: 16px;
-      padding: 16px 32px;
       width: 100%;
       letter-spacing: 0.3px;
     }
@@ -177,7 +174,6 @@
       color: var(--yellow);
       border-color: var(--yellow);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(255, 191, 2, 0.3);
     }
     &:active {
       transform: translateY(0);
