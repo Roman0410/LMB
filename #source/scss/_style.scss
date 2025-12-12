@@ -1628,8 +1628,12 @@
 
   .single-post-cta {
     margin-top: 48px;
+    text-align: center;
+    padding-top: 32px;
+    border-top: 1px solid rgba(34, 37, 45, 0.1);
     @media screen and (max-width: 768px) {
       margin-top: 40px;
+      padding-top: 24px;
     }
   }
 }

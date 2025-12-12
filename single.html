@@ -145,6 +145,19 @@
               </p>
             </div>
           </div>
+
+          <div
+            class="single-post-cta"
+            id="single-post-cta"
+            style="display: none"
+          >
+            <a
+              href="https://forms.gle/YOUR_FORM_ID"
+              target="_blank"
+              class="btn hero-btn"
+              >Долучитися</a
+            >
+          </div>
         </article>
       </div>
     </main>
@@ -260,12 +273,20 @@
       const backLink = document.getElementById('back-link');
       const backText = document.getElementById('back-text');
 
+      const ctaButton = document.getElementById('single-post-cta');
+
       if (type === 'news') {
         backLink.href = './news.html';
         backText.textContent = 'Назад до новин';
+        if (ctaButton) {
+          ctaButton.style.display = 'none';
+        }
       } else {
         backLink.href = './events.html';
         backText.textContent = 'Назад до подій';
+        if (ctaButton) {
+          ctaButton.style.display = 'block';
+        }
       }
     </script>
   </body>
