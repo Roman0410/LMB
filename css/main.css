@@ -1183,9 +1183,9 @@ h6 {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     text-align: left;
     gap: 20px;
     -webkit-box-flex: 1;
@@ -1589,6 +1589,11 @@ h6 {
   .founders .participants-arrows {
     margin-top: 24px;
     gap: 20px;
+  }
+}
+@media screen and (min-width: 769px) {
+  .founders .participants-arrows.hide-on-desktop {
+    display: none;
   }
 }
 .founders .participants-arrows button {
@@ -2223,6 +2228,20 @@ h6 {
   .footer .footer-nav-list,
   .footer .footer-contacts-list {
     gap: 12px;
+  }
+}
+@media screen and (min-width: 769px) {
+  .footer .footer-nav-list {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 24px 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    -webkit-column-gap: 24px;
+       -moz-column-gap: 24px;
+            column-gap: 24px;
+    row-gap: 12px;
+    -ms-flex-line-pack: start;
+        align-content: start;
   }
 }
 .footer .footer-link {

@@ -299,7 +299,7 @@
         }
         @media screen and (max-width: 768px) {
           flex-direction: row;
-          align-items: flex-start;
+          align-items: center;
           text-align: left;
           gap: 20px;
           flex: 1;
@@ -633,6 +633,13 @@
     @media screen and (max-width: 768px) {
       margin-top: 24px;
       gap: 20px;
+    }
+
+    // Приховуємо стрілки на ПК, якщо слайдів менше 5
+    &.hide-on-desktop {
+      @media screen and (min-width: 769px) {
+        display: none;
+      }
     }
 
     button {
@@ -1151,6 +1158,17 @@
     gap: 16px;
     @media screen and (max-width: 768px) {
       gap: 12px;
+    }
+  }
+
+  .footer-nav-list {
+    // Розділяємо навігацію на два стовпці на десктопі
+    @media screen and (min-width: 769px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 24px;
+      row-gap: 12px;
+      align-content: start;
     }
   }
 

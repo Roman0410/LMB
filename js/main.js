@@ -338,7 +338,23 @@ $(function () {
 
   // Слайдер учасників платформи
   if ($('.participants-slider').length && typeof $.fn.slick === 'function') {
-    $('.participants-slider').slick({
+    const $participantsSlider = $('.participants-slider');
+    const $participantsArrows = $('.participants-arrows');
+
+    // Функція для перевірки кількості слайдів та приховування стрілок
+    function checkParticipantsCount() {
+      const slideCount = $participantsSlider.find('.participant-card').length;
+      const windowWidth = $(window).width();
+
+      // Якщо слайдів менше 5 і екран більше 768px (ПК версія), приховуємо стрілки
+      if (slideCount < 5 && windowWidth > 768) {
+        $participantsArrows.addClass('hide-on-desktop');
+      } else {
+        $participantsArrows.removeClass('hide-on-desktop');
+      }
+    }
+
+    $participantsSlider.slick({
       slidesToShow: 4,
       slidesToScroll: 4,
       arrows: true,
@@ -371,6 +387,17 @@ $(function () {
         },
       ],
     });
+
+    // Перевіряємо кількість після ініціалізації
+    $participantsSlider.on('init', checkParticipantsCount);
+    $participantsSlider.on('reInit', checkParticipantsCount);
+    $participantsSlider.on('breakpoint', checkParticipantsCount);
+
+    // Перевіряємо при зміні розміру вікна
+    $(window).on('resize', debounce(checkParticipantsCount, 150));
+
+    // Викликаємо одразу після ініціалізації
+    setTimeout(checkParticipantsCount, 100);
   }
 
   if (
