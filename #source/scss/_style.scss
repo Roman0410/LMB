@@ -817,6 +817,7 @@
 
   .what-we-do-cubes {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 12px;
     @media screen and (max-width: 768px) {
@@ -840,6 +841,7 @@
     border-radius: 14px;
     color: var(--green);
     overflow: hidden;
+
     @media screen and (max-width: 1024px) {
       padding: 32px;
       min-height: 280px;
