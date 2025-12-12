@@ -1046,7 +1046,7 @@ h6 {
   }
 }
 .about-us .about-intro {
-  max-width: 900px;
+  max-width: 930px;
   margin: 0 auto;
 }
 .about-us .about-intro p {
@@ -1123,9 +1123,6 @@ h6 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   position: relative;
   z-index: 1;
   gap: 12px;
@@ -1470,7 +1467,7 @@ h6 {
 }
 .founders .founder-photo {
   width: 280px;
-  height: 300px;
+  height: 330px;
   border-radius: 14px;
   overflow: hidden;
   -ms-flex-negative: 0;
@@ -1671,7 +1668,7 @@ h6 {
 }
 .founders .participant-photo {
   width: 100%;
-  aspect-ratio: 1;
+  height: 330px;
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 16px;

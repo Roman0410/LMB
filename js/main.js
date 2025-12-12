@@ -21,6 +21,49 @@ function isSpam(formData) {
 }
 
 // Функція відправки в Telegram через PHP проксі
+// Функція для відправки форми на email
+function sendToEmail(formData) {
+  // Санітизація даних
+  const sanitizedData = {};
+  for (const [key, value] of Object.entries(formData)) {
+    sanitizedData[key] = sanitizeInput(value);
+  }
+
+  // Перевірка на спам
+  if (isSpam(sanitizedData)) {
+    throw new Error('Підозрілий контент виявлено');
+  }
+
+  // Відправляємо на сервер
+  return fetch('send-email.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(sanitizedData),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        return response.json().then((err) => {
+          throw new Error(
+            err.error || `HTTP error! status: ${response.status}`
+          );
+        });
+      }
+      return response.json();
+    })
+    .then((data) => {
+      if (data.success) {
+        return { success: true };
+      } else {
+        throw new Error(data.error || 'Помилка відправки');
+      }
+    })
+    .catch((error) => {
+      throw error;
+    });
+}
+
 function sendToTelegram(formData) {
   // Санітизація даних
   const sanitizedData = {};
@@ -404,6 +447,64 @@ $(function () {
     $('input[name="correction"]').on('change', function () {
       $('#cf-correction').val($(this).val());
     });
+  }
+
+  // Валідація простої форми контактів (name, email, message)
+  if (
+    document.getElementById('contactForm') &&
+    document.getElementById('name') &&
+    typeof window.JustValidate !== 'undefined'
+  ) {
+    const simpleContactForm = new window.JustValidate('#contactForm', {
+      errorFieldCssClass: 'is-invalid',
+      successFieldCssClass: 'is-valid',
+      validateBeforeSubmitting: true,
+    });
+
+    simpleContactForm
+      .addField('#name', [{ rule: 'required', errorMessage: "Вкажіть ім'я" }])
+      .addField('#email', [
+        { rule: 'required', errorMessage: 'Вкажіть email' },
+        { rule: 'email', errorMessage: 'Некоректний email' },
+      ])
+      .addField('#message', [
+        { rule: 'required', errorMessage: 'Введіть повідомлення' },
+      ])
+      .onSuccess((event) => {
+        event.preventDefault();
+
+        // Збираємо дані форми
+        const formData = {
+          name: $('#name').val(),
+          email: $('#email').val(),
+          message: $('#message').val(),
+        };
+
+        // Відправляємо на email
+        sendToEmail(formData)
+          .then(() => {
+            // Показуємо модальне вікно успіху
+            if (typeof Fancybox !== 'undefined') {
+              Fancybox.show([{ src: '#contact-success', type: 'inline' }]);
+            } else if (typeof $.fancybox !== 'undefined') {
+              $.fancybox.open('#contact-success');
+            } else {
+              // Fallback - показуємо alert
+              alert(
+                "Дякуємо! Ваше повідомлення надіслано. Ми зв'яжемось з Вами найближчим часом."
+              );
+            }
+            // Очищаємо форму
+            $('#contactForm')[0].reset();
+          })
+          .catch((error) => {
+            alert(
+              'Помилка відправки форми: ' +
+                error.message +
+                "\nСпробуйте пізніше або зв'яжіться з нами по телефону."
+            );
+          });
+      });
   }
 
   function scrollToCenterWithHeader(element, headerHeight = 0) {
