@@ -88,6 +88,10 @@
       right: 30px;
       bottom: -5px;
       border-radius: 0 0 14px 0;
+      @media screen and (max-width: 768px) {
+        right: 0px;
+        bottom: -3px;
+      }
     }
     &::before {
       content: '';
@@ -734,6 +738,7 @@
 
     @media screen and (max-width: 768px) {
       border-radius: 10px;
+      margin: 0 auto;
       margin-bottom: 12px;
       width: 80%;
       height: 350px;
@@ -771,6 +776,12 @@
   background-color: #fff;
   padding: 100px 0;
   position: relative;
+  .section-title {
+    &::after,
+    &::before {
+      display: none;
+    }
+  }
   @media screen and (max-width: 1024px) {
     padding: 80px 0;
   }
@@ -1899,7 +1910,7 @@
   .form-input {
     padding: 16px 20px;
     border: 2px solid rgba(34, 37, 45, 0.2);
-    border-radius: 8px;
+    border-radius: 15px;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     color: var(--black);
@@ -1907,7 +1918,6 @@
     transition: all 0.2s ease;
     width: 100%;
     box-sizing: border-box;
-
     &:focus {
       outline: none;
       border-color: var(--green);

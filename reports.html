@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Звіти та карта - Львів може більше</title>
+
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <link rel="icon" href="./img/fav.svg" />
+  </head>
+  <body>
+    <main class="reports-page">
+      <div class="reports-container">
+        <!-- Left Panel: Filters and Reports List -->
+        <aside class="reports-sidebar">
+          <div class="filters-section">
+            <div class="close-filters">×</div>
+            <h2 class="filters-title">Фільтри</h2>
+            <div class="filter-group">
+              <label for="filter-type" class="filter-label">Тип звіту</label>
+              <select id="filter-type" class="filter-select">
+                <option value="">Всі типи</option>
+                <option value="problem">Проблема</option>
+                <option value="improvement">Покращення</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filter-category" class="filter-label"
+                >Категорія</label
+              >
+              <select id="filter-category" class="filter-select">
+                <option value="">Всі категорії</option>
+                <option value="infrastructure">Інфраструктура</option>
+                <option value="housing">ЖКХ</option>
+                <option value="education">Освіта</option>
+                <option value="ecology">Екологія</option>
+                <option value="social">Соціальний захист</option>
+                <option value="other">Інше</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filter-district" class="filter-label">Район</label>
+              <select id="filter-district" class="filter-select">
+                <option value="">Всі райони</option>
+                <option value="Галицький">Галицький</option>
+                <option value="Залізничний">Залізничний</option>
+                <option value="Личаківський">Личаківський</option>
+                <option value="Сихівський">Сихівський</option>
+                <option value="Франківський">Франківський</option>
+                <option value="Шевченківський">Шевченківський</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filter-search" class="filter-label">Пошук</label>
+              <input
+                type="text"
+                id="filter-search"
+                class="filter-input"
+                placeholder="Адреса або опис..."
+              />
+            </div>
+          </div>
+
+          <div class="reports-list-section">
+            <div class="reports-list-header">
+              <h2 class="reports-list-title">Звіти</h2>
+              <span class="reports-count" id="reports-count">0</span>
+            </div>
+            <div class="reports-list" id="reports-list">
+              <!-- Report cards will be inserted here -->
+            </div>
+            <div class="empty-state" id="empty-state" style="display: none">
+              <p>Звітів не знайдено</p>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Right Panel: Map -->
+        <div class="reports-map-container">
+          <a href="./index.html" class="reports-back-btn btn"> На головну </a>
+          <div class="mobile-open-filters">
+            <span></span>
+          </div>
+          <button class="btn-leave-report" id="btn-leave-report" type="button">
+            Залишити звіт
+          </button>
+          <div id="map" class="reports-map"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal for Leave Report Form -->
+    <div class="modal-overlay" id="modal-overlay" aria-hidden="true">
+      <div
+        class="modal"
+        role="dialog"
+        aria-labelledby="modal-title"
+        aria-modal="true"
+      >
+        <div class="modal-header">
+          <h2 id="modal-title" class="modal-title">Залишити звіт</h2>
+          <button
+            class="modal-close"
+            id="modal-close"
+            type="button"
+            aria-label="Закрити модальне вікно"
+          >
+            ×
+          </button>
+        </div>
+        <form id="report-form" class="report-form">
+          <div class="form-group">
+            <label for="report-type" class="form-label">
+              Тип звіту <span class="required">*</span>
+            </label>
+            <select id="report-type" class="form-select" required>
+              <option value="">Оберіть тип</option>
+              <option value="problem">Проблема</option>
+              <option value="improvement">Покращення</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="report-category" class="form-label">
+              Категорія <span class="required">*</span>
+            </label>
+            <select id="report-category" class="form-select" required>
+              <option value="">Оберіть категорію</option>
+              <option value="infrastructure">Інфраструктура</option>
+              <option value="housing">ЖКХ</option>
+              <option value="education">Освіта</option>
+              <option value="ecology">Екологія</option>
+              <option value="social">Соціальний захист</option>
+              <option value="other">Інше</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="report-district" class="form-label">
+              Район <span class="required">*</span>
+            </label>
+            <select id="report-district" class="form-select" required>
+              <option value="">Оберіть район</option>
+              <option value="Галицький">Галицький</option>
+              <option value="Залізничний">Залізничний</option>
+              <option value="Личаківський">Личаківський</option>
+              <option value="Сихівський">Сихівський</option>
+              <option value="Франківський">Франківський</option>
+              <option value="Шевченківський">Шевченківський</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="report-address" class="form-label">
+              Адреса <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="report-address"
+              class="form-input"
+              placeholder="Наприклад: вул. Свободи, 1"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="report-description" class="form-label">
+              Опис <span class="required">*</span>
+            </label>
+            <textarea
+              id="report-description"
+              class="form-textarea"
+              rows="4"
+              placeholder="Детальний опис проблеми або пропозиції..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="report-images" class="form-label"
+              >Фото (до 2 зображень)</label
+            >
+            <input
+              type="file"
+              id="report-images"
+              class="form-input-file"
+              accept="image/*"
+              multiple
+            />
+            <div
+              class="image-preview-container"
+              id="image-preview-container"
+            ></div>
+          </div>
+
+          <div class="form-group">
+            <label for="report-contact" class="form-label">
+              Контакт <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="report-contact"
+              class="form-input"
+              placeholder="Ім'я та телефон або email"
+              required
+            />
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" id="form-cancel">
+              Скасувати
+            </button>
+            <button type="submit" class="btn btn-primary" id="form-submit">
+              <span class="btn-text">Відправити</span>
+              <span class="btn-loading" style="display: none"
+                >Завантаження...</span
+              >
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Success Notification -->
+    <div class="notification" id="notification" role="alert" aria-live="polite">
+      <span class="notification-text" id="notification-text"></span>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+
+    <!-- App Scripts -->
+    <script src="./js/data.js"></script>
+    <script src="./js/map.js"></script>
+    <script src="./js/reports.js"></script>
+    <script src="./js/modal.js"></script>
+    <script src="./js/reports-init.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
